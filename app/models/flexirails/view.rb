@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Flexirails
   class View
     attr_reader :current_page, :per_page, :responder
@@ -46,6 +47,7 @@ module Flexirails
 $(document).ready(function() {
   var aView = JSON.parse('#{to_h.to_json}');
   var aLocales = {
+    no_results: 'Keine Einträge vorhanden',
     results: {
       perPage         :   '#{I18n.t(:'flexirails.navigation.per_page')}',
       page            :   '#{I18n.t(:'flexirails.navigation.page')}',

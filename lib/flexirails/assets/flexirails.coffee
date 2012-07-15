@@ -21,6 +21,7 @@
     limitDisplayPerPageOptions: [5, 25, 50, 100, 250]
 
     locales: 
+      no_results: 'No results found'
       results:
         perPage: 'Results per Page:'
         page: 'Page '
@@ -66,49 +67,47 @@
       }
 
       @locales = options.locales if options.hasOwnProperty 'locales'
-
+      @setupEventListeners()
+      
       @init()
 
     init: ->
       @initializingView = true;
 
-      if (!@_currentView.hasOwnProperty('totalResults')) 
-        @_currentView.totalResults = 1
-      
-      if (@_currentView.hasOwnProperty('current_page')) 
-        @_currentView.currentPage = @_currentView.current_page
-        delete @_currentView.current_page
+      @_currentView.totalResults or= 1
+      @_currentView.currentPage or= @_currentView.current_page or 1
+      @_currentView.perPage or= @_currentView.per_page or 1
 
       @_currentView.currentPage = if @_currentView.hasOwnProperty('currentPage') then parseInt(@_currentView.currentPage, 10) else 1
-      
-      if (@_currentView.hasOwnProperty('per_page')) 
-        @_currentView.perPage = @_currentView.per_page
-        delete @_currentView.per_page
-
       @_currentView.perPage = if @_currentView.hasOwnProperty('perPage') then parseInt(@_currentView.perPage, 10) else @_defaults.perPage
       
       @initializingView = false
       
-      @flexiContainer  = $(document.createElement('div')).addClass('flexirails')
+      @flexiContainer = $(document.createElement('div')).addClass('flexirails')
       
-      if @flexiTable? 
-        $(@flexiTable).remove()
+      $(@flexiTable).remove() if @flexiTable? 
 
-      @flexiTable      = document.createElement('table')
+      @flexiTable = document.createElement('table')
       @flexiContainer.append(@flexiTable)
       
-      topNavigation = $(document.createElement('div'))
-      @createNavigation(topNavigation)
-      $(@element).append(topNavigation)
+      navigation = $(document.createElement('div'))
+      @createNavigation(navigation)
+      $(@element).append(navigation.clone())
       
       @flexiContainer.append(@flexiTable)
       $(@element).append(@flexiContainer)
       
-      bottomNavigation = $(document.createElement('div'))
-      @createNavigation(bottomNavigation)
-      $(@element).append(bottomNavigation)
+      $(@element).append(navigation)
 
       @invalidateView()
+
+    setupEventListeners: ->
+      $(@element).on "click",  "a[name=toFirstPage]", @paginateToFirstPage
+      $(@element).on "click",  "a[name=toPrevPage]", @paginateToPrevPage
+      $(@element).on "click",  "a[name=toNextPage]", @paginateToNextPage
+      $(@element).on "click",  "a[name=toLastPage]", @paginateToLastPage
+      $(@element).on "change", ":input[name=current_page_box]", @paginateToAnyPage
+      $(@element).on "change", ":input[name=per_page]", @changePerPage
 
     reloadFlexidata: ->
       if (!@_url? or @dontExecuteQueries or @initializingView or @loadingData) 
@@ -119,9 +118,9 @@
         type: 'GET',
         url: @_url,
         data: this.buildFlexiOptions(),
-        success: @buildFlexiview
         dataType: 'json'
       })
+      request.done @buildFlexiview
 
       @loadingData = true
       @appendResults = false
@@ -155,9 +154,11 @@
       if (arr.length is 0) 
         _tr = document.createElement('tr')
         _tr.className = 'no_results'
+
         td = document.createElement('td')
         td.className = 'center'
-        td.appendChild(document.createTextNode("Keine Einträge vorhanden"))
+        td.appendChild(document.createTextNode(@t('no_results')))
+
         _tr.appendChild(td)
         fragment.appendChild(_tr)
 
@@ -186,16 +187,16 @@
         if (@_currentView.perPage > 0) 
           limit = Math.min( @_defaults.limitFetchResultsTo, @_currentView.perPage - @loadedRows )
         
-        $.ajax({
+        req = $.ajax({
           type: 'GET'
           url: @_url
           data: @buildFlexiOptions({}, {
             limit: limit
             offset: @loadedRows
           })
-          success: @buildFlexiview
           dataType: 'json'
         })
+        req.done @buildFlexiview
 
     buildFlexiRow: (obj) ->
       _tr = document.createElement('tr')
@@ -269,7 +270,6 @@
 
         @reloadFlexidata();
 
-
     setupFirstLastColumns: ->
       $(@element).find("td.first,th.first").removeClass("first")
       $(@element).find("td.last,th.last").removeClass("last")
@@ -294,7 +294,6 @@
       $(@element).find(".js-fr-from-page").val(@_currentView.currentPage)
       $(@element).find(".to").html(@_pagination.last)
       $(@element).find(":input[name=per_page]").val(@_currentView.perPage)
-
 
     setFlexirailsOptions: (data) ->
       return if (@appendResults)
@@ -363,13 +362,6 @@
       navigation = @navigationTemplate(data)
       
       container.append(navigation)
-
-      $(container).delegate "a[name=toFirstPage]", "click", @paginateToFirstPage
-      $(container).delegate "a[name=toPrevPage]", "click", @paginateToPrevPage
-      $(container).delegate "a[name=toNextPage]", "click", @paginateToNextPage
-      $(container).delegate "a[name=toLastPage]", "click", @paginateToLastPage
-      $(container).delegate ":input[name=current_page_box]", "change", @paginateToAnyPage
-      $(container).delegate ":input[name=per_page]", "change", @changePerPage
 
     invalidateView: ->
       @dontExecuteQueries = true

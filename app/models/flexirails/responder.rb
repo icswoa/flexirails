@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Flexirails
   class Responder
     attr_reader :offset, :limit, :current_page, :per_page

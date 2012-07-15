@@ -15,6 +15,7 @@
       limitDisplayPerPageTo: 25,
       limitDisplayPerPageOptions: [5, 25, 50, 100, 250],
       locales: {
+        no_results: 'No results found',
         results: {
           perPage: 'Results per Page:',
           page: 'Page ',
@@ -85,24 +86,17 @@
         if (options.hasOwnProperty('locales')) {
           this.locales = options.locales;
         }
+        this.setupEventListeners();
         this.init();
       }
 
       Flexirails.prototype.init = function() {
-        var bottomNavigation, topNavigation;
+        var navigation, _base, _base1, _base2;
         this.initializingView = true;
-        if (!this._currentView.hasOwnProperty('totalResults')) {
-          this._currentView.totalResults = 1;
-        }
-        if (this._currentView.hasOwnProperty('current_page')) {
-          this._currentView.currentPage = this._currentView.current_page;
-          delete this._currentView.current_page;
-        }
+        (_base = this._currentView).totalResults || (_base.totalResults = 1);
+        (_base1 = this._currentView).currentPage || (_base1.currentPage = this._currentView.current_page || 1);
+        (_base2 = this._currentView).perPage || (_base2.perPage = this._currentView.per_page || 1);
         this._currentView.currentPage = this._currentView.hasOwnProperty('currentPage') ? parseInt(this._currentView.currentPage, 10) : 1;
-        if (this._currentView.hasOwnProperty('per_page')) {
-          this._currentView.perPage = this._currentView.per_page;
-          delete this._currentView.per_page;
-        }
         this._currentView.perPage = this._currentView.hasOwnProperty('perPage') ? parseInt(this._currentView.perPage, 10) : this._defaults.perPage;
         this.initializingView = false;
         this.flexiContainer = $(document.createElement('div')).addClass('flexirails');
@@ -111,15 +105,22 @@
         }
         this.flexiTable = document.createElement('table');
         this.flexiContainer.append(this.flexiTable);
-        topNavigation = $(document.createElement('div'));
-        this.createNavigation(topNavigation);
-        $(this.element).append(topNavigation);
+        navigation = $(document.createElement('div'));
+        this.createNavigation(navigation);
+        $(this.element).append(navigation.clone());
         this.flexiContainer.append(this.flexiTable);
         $(this.element).append(this.flexiContainer);
-        bottomNavigation = $(document.createElement('div'));
-        this.createNavigation(bottomNavigation);
-        $(this.element).append(bottomNavigation);
+        $(this.element).append(navigation);
         return this.invalidateView();
+      };
+
+      Flexirails.prototype.setupEventListeners = function() {
+        $(this.element).on("click", "a[name=toFirstPage]", this.paginateToFirstPage);
+        $(this.element).on("click", "a[name=toPrevPage]", this.paginateToPrevPage);
+        $(this.element).on("click", "a[name=toNextPage]", this.paginateToNextPage);
+        $(this.element).on("click", "a[name=toLastPage]", this.paginateToLastPage);
+        $(this.element).on("change", ":input[name=current_page_box]", this.paginateToAnyPage);
+        return $(this.element).on("change", ":input[name=per_page]", this.changePerPage);
       };
 
       Flexirails.prototype.reloadFlexidata = function() {
@@ -132,9 +133,9 @@
           type: 'GET',
           url: this._url,
           data: this.buildFlexiOptions(),
-          success: this.buildFlexiview,
           dataType: 'json'
         });
+        request.done(this.buildFlexiview);
         this.loadingData = true;
         return this.appendResults = false;
       };
@@ -168,7 +169,7 @@
           _tr.className = 'no_results';
           td = document.createElement('td');
           td.className = 'center';
-          td.appendChild(document.createTextNode("Keine Einträge vorhanden"));
+          td.appendChild(document.createTextNode(this.t('no_results')));
           _tr.appendChild(td);
           fragment.appendChild(_tr);
         }
@@ -192,23 +193,23 @@
       };
 
       Flexirails.prototype.appendFlexiData = function() {
-        var limit;
+        var limit, req;
         if ((this._currentView.perPage * (this._currentView.currentPage - 1) + this.loadedRows) < this._currentView.totalResults) {
           this.appendResults = true;
           limit = this._defaults.limitFetchResultsTo;
           if (this._currentView.perPage > 0) {
             limit = Math.min(this._defaults.limitFetchResultsTo, this._currentView.perPage - this.loadedRows);
           }
-          return $.ajax({
+          req = $.ajax({
             type: 'GET',
             url: this._url,
             data: this.buildFlexiOptions({}, {
               limit: limit,
               offset: this.loadedRows
             }),
-            success: this.buildFlexiview,
             dataType: 'json'
           });
+          return req.done(this.buildFlexiview);
         }
       };
 
@@ -383,13 +384,7 @@
           "resultsPerPage": resultsPerPage
         };
         navigation = this.navigationTemplate(data);
-        container.append(navigation);
-        $(container).delegate("a[name=toFirstPage]", "click", this.paginateToFirstPage);
-        $(container).delegate("a[name=toPrevPage]", "click", this.paginateToPrevPage);
-        $(container).delegate("a[name=toNextPage]", "click", this.paginateToNextPage);
-        $(container).delegate("a[name=toLastPage]", "click", this.paginateToLastPage);
-        $(container).delegate(":input[name=current_page_box]", "change", this.paginateToAnyPage);
-        return $(container).delegate(":input[name=per_page]", "change", this.changePerPage);
+        return container.append(navigation);
       };
 
       Flexirails.prototype.invalidateView = function() {
