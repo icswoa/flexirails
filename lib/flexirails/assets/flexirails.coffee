@@ -376,7 +376,7 @@
       
       @setViewOptions()
 
-      if (@_pagination.last is @_pagination.first || @currentView.totalResults is 0) 
+      if (@_pagination.last is @_pagination.first || @_currentView.totalResults is 0) 
         $(@element).find(".pagination.logic").hide()
       else 
         $(@element).find(".pagination.logic").show()

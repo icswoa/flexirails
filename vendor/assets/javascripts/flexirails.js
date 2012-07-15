@@ -396,7 +396,7 @@
         var col, _i, _len, _ref;
         this.dontExecuteQueries = true;
         this.setViewOptions();
-        if (this._pagination.last === this._pagination.first || this.currentView.totalResults === 0) {
+        if (this._pagination.last === this._pagination.first || this._currentView.totalResults === 0) {
           $(this.element).find(".pagination.logic").hide();
         } else {
           $(this.element).find(".pagination.logic").show();
