@@ -169,6 +169,7 @@
           _tr.className = 'no_results';
           td = document.createElement('td');
           td.className = 'center';
+          td.colSpan = this._currentView.cols.length;
           td.appendChild(document.createTextNode(this.t('no_results')));
           _tr.appendChild(td);
           fragment.appendChild(_tr);
@@ -360,11 +361,7 @@
       };
 
       Flexirails.prototype.createNavigation = function(container) {
-        var data, item, navigation, resultsPerPage, _i, _len, _ref;
-        if (!this.hasOwnProperty('navigationTemplate')) {
-          this.navigationTemplateSource = '<div class="results">' + '<span class="total_results">1</span>' + ' Ergebnisse,' + '</div>' + '<div class="label">{{locales/resultsPerPage}}</div>' + '<div class="select">' + '<select id="per_page" name="per_page">' + '{{#resultsPerPage}}' + '<option value="{{value}}">{{label}}</option>' + '{{/resultsPerPage}}' + '</select>' + '</div>' + '<div class="pagination">' + '<a name="toFirstPage"><span class="first">' + firstPageSVG + '</span></a>' + '<a name="toPrevPage"><span class="prev">' + prevPageSVG + '</span></a>' + '<div class="page">' + '<span>{{locales/page}}</span>' + '<input class="js-fr-from-page" name="current_page_box" type="text">' + '<span>{{locales/of}}</span>' + '<span class="to">1</span>' + '</div>' + '<a name="toNextPage"><span class="next">' + nextPageSVG + '</span></a>' + '<a name="toLastPage"><span class="last">' + lastPageSVG + '</span></a>' + '</div>';
-          this.navigationTemplate = Handlebars.compile(this.navigationTemplateSource);
-        }
+        var data, item, navigation, resultsPerPage, _i, _j, _len, _len1, _ref;
         resultsPerPage = [];
         _ref = this._defaults.limitDisplayPerPageOptions;
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -383,7 +380,12 @@
           },
           "resultsPerPage": resultsPerPage
         };
-        navigation = this.navigationTemplate(data);
+        navigation = '<div class="results">' + '<span class="total_results">1</span>' + ' Ergebnisse,' + '</div>' + '<div>' + data.locales.resultsPerPage + '</div>' + '<div class="select">' + '<select id="per_page" name="per_page">';
+        for (_j = 0, _len1 = resultsPerPage.length; _j < _len1; _j++) {
+          item = resultsPerPage[_j];
+          navigation += '<option value="' + item.value + '">' + item.label + '</option>';
+        }
+        navigation += '</select>' + '</div>' + '<div class="pagination">' + '<a name="toFirstPage"><span class="first">' + firstPageSVG + '</span></a>' + '<a name="toPrevPage"><span class="prev">' + prevPageSVG + '</span></a>' + '<div class="page">' + '<span>' + data.locales.page + '</span>' + '<input class="js-fr-from-page" name="current_page_box" type="text">' + '<span>' + data.locales.of + '</span>' + '<span class="to">1</span>' + '</div>' + '<a name="toNextPage"><span class="next">' + nextPageSVG + '</span></a>' + '<a name="toLastPage"><span class="last">' + lastPageSVG + '</span></a>' + '</div>';
         return container.append(navigation);
       };
 

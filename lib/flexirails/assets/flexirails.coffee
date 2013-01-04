@@ -20,22 +20,22 @@
     # per page selection options
     limitDisplayPerPageOptions: [5, 25, 50, 100, 250]
 
-    locales: 
+    locales:
       no_results: 'No results found'
       results:
         perPage: 'Results per Page:'
         page: 'Page '
         of: ' of '
         total: ' Results'
-  
+
   extractAttribute = (obj, qualifiedName) ->
     parts = qualifiedName.split(".")
     current = obj
-    
+
     for part in parts
       if current.hasOwnProperty part
         current = current[part]
-      else 
+      else
         break
 
     value = current
@@ -68,7 +68,7 @@
 
       @locales = options.locales if options.hasOwnProperty 'locales'
       @setupEventListeners()
-      
+
       @init()
 
     init: ->
@@ -80,23 +80,23 @@
 
       @_currentView.currentPage = if @_currentView.hasOwnProperty('currentPage') then parseInt(@_currentView.currentPage, 10) else 1
       @_currentView.perPage = if @_currentView.hasOwnProperty('perPage') then parseInt(@_currentView.perPage, 10) else @_defaults.perPage
-      
+
       @initializingView = false
-      
+
       @flexiContainer = $(document.createElement('div')).addClass('flexirails')
-      
-      $(@flexiTable).remove() if @flexiTable? 
+
+      $(@flexiTable).remove() if @flexiTable?
 
       @flexiTable = document.createElement('table')
       @flexiContainer.append(@flexiTable)
-      
+
       navigation = $(document.createElement('div'))
       @createNavigation(navigation)
       $(@element).append(navigation.clone())
-      
+
       @flexiContainer.append(@flexiTable)
       $(@element).append(@flexiContainer)
-      
+
       $(@element).append(navigation)
 
       @invalidateView()
@@ -110,7 +110,7 @@
       $(@element).on "change", ":input[name=per_page]", @changePerPage
 
     reloadFlexidata: ->
-      if (!@_url? or @dontExecuteQueries or @initializingView or @loadingData) 
+      if (!@_url? or @dontExecuteQueries or @initializingView or @loadingData)
         return
 
       $(@element).find(".js-fr-from-page").attr('disabled','disabled')
@@ -127,13 +127,13 @@
 
     buildFlexiview: (data, textStatus, XMLHttpRequest) =>
       @_currentView.totalResults = parseInt(data.total, 10) || 0
-      
+
       @setFlexirailsOptions(data)
-      
+
       fragment = document.createDocumentFragment()
 
-      if (!@appendResults) 
-        while(@flexiTable.hasChildNodes()) 
+      if (!@appendResults)
+        while(@flexiTable.hasChildNodes())
           @flexiTable.removeChild(@flexiTable.firstChild);
         @loadedRows = 0
 
@@ -145,18 +145,19 @@
           header.appendChild(th)
 
         fragment.appendChild(header)
-      
+
       arr = data.rows
-     
+
       @loadedRows += arr.length
       cur_req = Math.round(@loadedRows / @_defaults.limitFetchResultsTo)
 
-      if (arr.length is 0) 
+      if (arr.length is 0)
         _tr = document.createElement('tr')
         _tr.className = 'no_results'
 
         td = document.createElement('td')
         td.className = 'center'
+        td.colSpan = @_currentView.cols.length
         td.appendChild(document.createTextNode(@t('no_results')))
 
         _tr.appendChild(td)
@@ -167,26 +168,26 @@
       @flexiTable.appendChild(fragment.cloneNode(true))
 
       @setupFirstLastColumns()
-      
+
       @loadingData = false
-      
-      if ((@loadedRows < @_currentView.perPage) && (@loadedRows < @_currentView.totalResults)) 
+
+      if ((@loadedRows < @_currentView.perPage) && (@loadedRows < @_currentView.totalResults))
         @appendFlexiData()
-        if (@_currentView.currentPage is @_pagination.last) 
+        if (@_currentView.currentPage is @_pagination.last)
           $(@element).find(".js-fr-from-page").removeAttr('disabled')
-      else 
+      else
         @appendResults = false;
         $(@element).find(".js-fr-from-page").removeAttr('disabled')
         $(@element).find(".flexirails-container").trigger("complete")
 
     appendFlexiData: ->
-      if ((@_currentView.perPage * (@_currentView.currentPage - 1) + @loadedRows) < @_currentView.totalResults) 
+      if ((@_currentView.perPage * (@_currentView.currentPage - 1) + @loadedRows) < @_currentView.totalResults)
         @appendResults = true
-        
+
         limit = @_defaults.limitFetchResultsTo
-        if (@_currentView.perPage > 0) 
+        if (@_currentView.perPage > 0)
           limit = Math.min( @_defaults.limitFetchResultsTo, @_currentView.perPage - @loadedRows )
-        
+
         req = $.ajax({
           type: 'GET'
           url: @_url
@@ -201,8 +202,8 @@
     buildFlexiRow: (obj) ->
       _tr = document.createElement('tr')
       _tr.className = 'flexirow'
-      
-      if (obj.hasOwnProperty('id')) 
+
+      if (obj.hasOwnProperty('id'))
         _tr.className += (' row-' + obj.id)
 
       for col, j in @_currentView.cols
@@ -223,7 +224,7 @@
 
       opts.limit = @_defaults.limitFetchResultsTo
       opts.offset = 0
-        
+
       $.extend(opts, override)
       return opts
 
@@ -232,39 +233,39 @@
     paginateToAnyPage: (evt) => @paginate($(evt.currentTarget).val())
 
     paginateToFirstPage: => @paginate(@_pagination.first)
-  
+
     paginateToPrevPage: => @paginate(Math.max(parseInt(@_currentView.currentPage, 10) - 1, @_pagination.first))
-  
+
     paginateToNextPage: => @paginate(Math.min(parseInt(@_currentView.currentPage, 10) + 1, @_pagination.last))
-  
+
     paginateToLastPage: => @paginate(@_pagination.last)
 
     changePerPageOption: (evt) => @updatePerPage($(evt.currentTarget).val())
 
     paginate: (to_page) ->
-      if (to_page > @_pagination.last || to_page < 1) 
+      if (to_page > @_pagination.last || to_page < 1)
         $(@element).find(".js-fr-from-page").val(@_currentView.currentPage)
-      if (@_currentView.currentPage != to_page) 
+      if (@_currentView.currentPage != to_page)
         @_currentView.currentPage = parseInt(to_page, 10)
-        
+
         @reloadFlexidata()
 
     appendClasses: (td, index, col) ->
       className = ''
-      if (index is 0) 
+      if (index is 0)
         className = 'first '
-      else if (index is @_currentView.cols.length - 1) 
+      else if (index is @_currentView.cols.length - 1)
         className = 'last '
       className += " #{col.attribute} "
       td.className = className
 
     updatePerPage: (new_per_page) =>
       if (new_per_page == -1)
-        if (!confirm(@t('confirm.loadAll'))) 
+        if (!confirm(@t('confirm.loadAll')))
           $(":input[name=per_page]").val(@_currentView.perPage)
           return
-        
-      if (new_per_page != @_currentView.perPage) 
+
+      if (new_per_page != @_currentView.perPage)
         @_currentView.currentPage = 1
         @_currentView.perPage = new_per_page
 
@@ -300,50 +301,22 @@
 
       @_pagination.last = Math.ceil(@_currentView.totalResults / (if @_currentView.perPage == -1 then data.total else @_currentView.perPage))
       @_currentView.currentPage = data.currentPage
-      
+
       @setViewOptions()
       @dontExecuteQueries = false
 
-      if (@_currentView.perPage == -1 || @_pagination.last == @_pagination.first) 
+      if (@_currentView.perPage == -1 || @_pagination.last == @_pagination.first)
         $(@element).find(".pagination.logic").hide()
       else
         $(@element).find(".pagination.logic").show()
-  
 
-    registerFormatter: (keyPath, fnc) -> 
+
+    registerFormatter: (keyPath, fnc) ->
       @_formatterFunctions[keyPath] = fnc
-    
+
     updateRow: (obj) -> $(".row-" + obj.id, @flexiTable).replaceWith(@buildFlexiRow( obj ))
 
     createNavigation: (container) ->
-      if (!@hasOwnProperty('navigationTemplate'))
-        @navigationTemplateSource =
-          '<div class="results">'+
-            '<span class="total_results">1</span>'+
-            ' Ergebnisse,'+
-          '</div>'+
-          '<div class="label">{{locales/resultsPerPage}}</div>'+
-          '<div class="select">'+
-            '<select id="per_page" name="per_page">'+
-              '{{#resultsPerPage}}'+
-                '<option value="{{value}}">{{label}}</option>'+
-              '{{/resultsPerPage}}'+
-            '</select>'+
-          '</div>'+
-          '<div class="pagination">'+
-            '<a name="toFirstPage"><span class="first">'+firstPageSVG+'</span></a>'+
-            '<a name="toPrevPage"><span class="prev">'+prevPageSVG+'</span></a>'+
-            '<div class="page">'+
-              '<span>{{locales/page}}</span>'+
-              '<input class="js-fr-from-page" name="current_page_box" type="text">'+
-              '<span>{{locales/of}}</span>'+
-              '<span class="to">1</span>'+
-            '</div>'+
-            '<a name="toNextPage"><span class="next">'+nextPageSVG+'</span></a>'+
-            '<a name="toLastPage"><span class="last">'+lastPageSVG+'</span></a>'+
-          '</div>';
-        @navigationTemplate = Handlebars.compile(@navigationTemplateSource)
-
       resultsPerPage = []
 
       for item in @_defaults.limitDisplayPerPageOptions
@@ -351,32 +324,54 @@
           value : item
           label : item
         })
-      
+
       container.addClass('navigation')
-      data = 
+      data =
         locales:
           "resultsPerPage"    : @t('results.perPage', this)
           "page"              : @t('results.page', this)
           "of"                : @t('results.of', this)
         "resultsPerPage"      : resultsPerPage
-      navigation = @navigationTemplate(data)
-      
+      navigation = '<div class="results">'+
+            '<span class="total_results">1</span>'+
+            ' Ergebnisse,'+
+          '</div>'+
+          '<div>'+data.locales.resultsPerPage+'</div>'+
+          '<div class="select">'+
+            '<select id="per_page" name="per_page">';
+      for item in resultsPerPage
+        navigation += '<option value="'+item.value+'">'+item.label+'</option>'
+      navigation += '</select>'+
+          '</div>'+
+          '<div class="pagination">'+
+            '<a name="toFirstPage"><span class="first">'+firstPageSVG+'</span></a>'+
+            '<a name="toPrevPage"><span class="prev">'+prevPageSVG+'</span></a>'+
+            '<div class="page">'+
+              '<span>'+data.locales.page+'</span>'+
+              '<input class="js-fr-from-page" name="current_page_box" type="text">'+
+              '<span>'+data.locales.of+'</span>'+
+              '<span class="to">1</span>'+
+            '</div>'+
+            '<a name="toNextPage"><span class="next">'+nextPageSVG+'</span></a>'+
+            '<a name="toLastPage"><span class="last">'+lastPageSVG+'</span></a>'+
+          '</div>';
+
       container.append(navigation)
 
     invalidateView: ->
       @dontExecuteQueries = true
-      
+
       @setViewOptions()
 
-      if (@_pagination.last is @_pagination.first || @_currentView.totalResults is 0) 
+      if (@_pagination.last is @_pagination.first || @_currentView.totalResults is 0)
         $(@element).find(".pagination.logic").hide()
-      else 
+      else
         $(@element).find(".pagination.logic").show()
-        
+
       @dontExecuteQueries = false;
 
       for col in @_currentView.cols
-        if (!@_formatterFunctions.hasOwnProperty(col.attribute)) 
+        if (!@_formatterFunctions.hasOwnProperty(col.attribute))
           @_formatterFunctions[col.attribute] = @buildDefaultFlexiCell
 
       @reloadFlexidata()
