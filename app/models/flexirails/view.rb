@@ -19,8 +19,8 @@ module Flexirails
 
     def to_h
        {
-        :currentPage => self.current_page, 
-        :perPage => self.per_page, 
+        :currentPage => self.current_page,
+        :perPage => self.per_page,
         :cols => columns.map { |column|
           {
             :title => column,
@@ -43,8 +43,7 @@ module Flexirails
     def as_html
       return <<-CONTENT
 <div class="flexirails-container"></div>
-<script type="text/javascript" class="meta-data">
-$(document).ready(function() {
+<script type="text/javascript" async>
   var aView = JSON.parse('#{to_h.to_json}');
   var aLocales = {
     no_results: 'Keine Einträge vorhanden',
@@ -55,12 +54,12 @@ $(document).ready(function() {
       total           :   '#{I18n.t(:'flexirails.navigation.results')}'
     }
   }
+
   $('.flexirails-container').flexirails({
-    view: aView, 
-    url: '#{self.data_url}', 
-    locales: aLocales 
+    view: aView,
+    url: '#{self.data_url}',
+    locales: aLocales
   });
-});
 </script>
 CONTENT
     end

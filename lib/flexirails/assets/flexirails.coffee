@@ -200,6 +200,8 @@
         req.done @buildFlexiview
 
     buildFlexiRow: (obj) ->
+      @prepareFormatters()
+
       _tr = document.createElement('tr')
       _tr.className = 'flexirow'
 
@@ -310,6 +312,8 @@
       else
         $(@element).find(".pagination.logic").show()
 
+    resetFormatters: ->
+      @_formatterFunctions = {}
 
     registerFormatter: (keyPath, fnc) ->
       @_formatterFunctions[keyPath] = fnc
@@ -358,6 +362,11 @@
 
       container.append(navigation)
 
+    prepareFormatters: ->
+      for col in @_currentView.cols
+        if (!@_formatterFunctions.hasOwnProperty(col.attribute))
+          @_formatterFunctions[col.attribute] = @buildDefaultFlexiCell
+
     invalidateView: ->
       @dontExecuteQueries = true
 
@@ -369,11 +378,7 @@
         $(@element).find(".pagination.logic").show()
 
       @dontExecuteQueries = false;
-
-      for col in @_currentView.cols
-        if (!@_formatterFunctions.hasOwnProperty(col.attribute))
-          @_formatterFunctions[col.attribute] = @buildDefaultFlexiCell
-
+      @prepareFormatters()
       @reloadFlexidata()
 
   # A really lightweight plugin wrapper around the constructor,

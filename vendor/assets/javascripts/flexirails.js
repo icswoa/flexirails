@@ -216,6 +216,7 @@
 
       Flexirails.prototype.buildFlexiRow = function(obj) {
         var col, j, td, _i, _len, _ref, _tr;
+        this.prepareFormatters();
         _tr = document.createElement('tr');
         _tr.className = 'flexirow';
         if (obj.hasOwnProperty('id')) {
@@ -352,6 +353,10 @@
         }
       };
 
+      Flexirails.prototype.resetFormatters = function() {
+        return this._formatterFunctions = {};
+      };
+
       Flexirails.prototype.registerFormatter = function(keyPath, fnc) {
         return this._formatterFunctions[keyPath] = fnc;
       };
@@ -389,8 +394,22 @@
         return container.append(navigation);
       };
 
+      Flexirails.prototype.prepareFormatters = function() {
+        var col, _i, _len, _ref, _results;
+        _ref = this._currentView.cols;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          col = _ref[_i];
+          if (!this._formatterFunctions.hasOwnProperty(col.attribute)) {
+            _results.push(this._formatterFunctions[col.attribute] = this.buildDefaultFlexiCell);
+          } else {
+            _results.push(void 0);
+          }
+        }
+        return _results;
+      };
+
       Flexirails.prototype.invalidateView = function() {
-        var col, _i, _len, _ref;
         this.dontExecuteQueries = true;
         this.setViewOptions();
         if (this._pagination.last === this._pagination.first || this._currentView.totalResults === 0) {
@@ -399,13 +418,7 @@
           $(this.element).find(".pagination.logic").show();
         }
         this.dontExecuteQueries = false;
-        _ref = this._currentView.cols;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          col = _ref[_i];
-          if (!this._formatterFunctions.hasOwnProperty(col.attribute)) {
-            this._formatterFunctions[col.attribute] = this.buildDefaultFlexiCell;
-          }
-        }
+        this.prepareFormatters();
         return this.reloadFlexidata();
       };
 
