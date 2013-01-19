@@ -1,6 +1,6 @@
 #  Project: Flexirails
 #  Description:
-#  Copyright 2010 - 2012, Raphael Randschau
+#  Copyright 2010 - 2013, Raphael Randschau
 #  License: MIT
 
 (($, window) ->

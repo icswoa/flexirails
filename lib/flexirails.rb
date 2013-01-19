@@ -1,7 +1,7 @@
-require_relative "flexirails/version"
+require "flexirails/version"
 
 if defined?(Rails)
-  require_relative "flexirails/engine"
+  require "flexirails/engine"
 end
 
 module Flexirails
