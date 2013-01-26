@@ -153,6 +153,7 @@
       @loadedRows += arr.length
       cur_req = Math.round(@loadedRows / @_defaults.limitFetchResultsTo)
 
+      tbody = document.createElement('tbody')
       if (arr.length is 0)
         _tr = document.createElement('tr')
         _tr.className = 'no_results'
@@ -163,10 +164,11 @@
         td.appendChild(document.createTextNode(@t('no_results')))
 
         _tr.appendChild(td)
-        fragment.appendChild(_tr)
+        tbody.appendChild(_tr)
+      else
+        tbody.appendChild(@buildFlexiRow(item)) for item in arr
 
-      fragment.appendChild(@buildFlexiRow(item)) for item in arr
-
+      fragment.appendChild tbody
       @flexiTable.appendChild(fragment.cloneNode(true))
 
       @setupFirstLastColumns()
