@@ -144,7 +144,9 @@
           th.appendChild(document.createTextNode(col.title))
           header.appendChild(th)
 
-        fragment.appendChild(header)
+        thead = document.createElement("thead")
+        thead.appendChild(header)
+        fragment.appendChild(thead)
 
       arr = data.rows
 
