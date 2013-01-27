@@ -376,10 +376,11 @@ getUrlParts = (url) ->
           "resultsPerPage"    : @t('results.perPage', this)
           "page"              : @t('results.page', this)
           "of"                : @t('results.of', this)
+          "results"           : @t('results.numberOf', this)
         "resultsPerPage"      : resultsPerPage
       navigation = '<div class="results">'+
             '<span class="total_results">1</span>'+
-            ' Ergebnisse,'+
+            data.locales.results + ', '+
           '</div>'+
           '<div>'+data.locales.resultsPerPage+'</div>'+
           '<div class="select">'+

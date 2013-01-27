@@ -17,13 +17,31 @@ module Flexirails
       raise 'ImplentationMissing'
     end
 
+    def i18n_scope clazz = self.class
+      return clazz.name.tableize.singularize.gsub('/','.')
+    end
+
+    def i18n_default name
+      scopes = []
+      clazz = self.class
+      clazz.ancestors.each do |ancestor|
+        break if ancestor == Object
+        scopes << [i18n_scope(ancestor),name].compact.join('.').to_sym
+      end
+      return scopes
+    end
+
+    def t name, args = {}
+      I18n.t([i18n_scope,name].compact.join('.'), { default: i18n_default(name) }.merge(args))
+    end
+
     def to_h
-       {
+      return {
         :currentPage => self.current_page,
         :perPage => self.per_page,
         :cols => columns.map { |column|
           {
-            :title => column,
+            :title => t(column),
             :attribute => column,
             :visible => 1,
           }
@@ -46,12 +64,13 @@ module Flexirails
 <script type="text/javascript" async>
   var aView = JSON.parse('#{to_h.to_json}');
   var aLocales = {
-    no_results: 'Keine Einträge vorhanden',
+    no_results: '#{I18n.t(:'flexirails.no_results')}',
     results: {
       perPage         :   '#{I18n.t(:'flexirails.navigation.per_page')}',
       page            :   '#{I18n.t(:'flexirails.navigation.page')}',
       of              :   '#{I18n.t(:'flexirails.navigation.of')}',
-      total           :   '#{I18n.t(:'flexirails.navigation.results')}'
+      total           :   '#{I18n.t(:'flexirails.navigation.results')}',
+      numberOf        :   '#{I18n.t(:'flexirails.results')}'
     }
   }
 
