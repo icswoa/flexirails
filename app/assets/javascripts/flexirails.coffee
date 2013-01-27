@@ -211,8 +211,8 @@ getUrlParts = (url) ->
       if window.history?
         params = getUrlParts(window.location.href)
 
-        params.current_page ?= @_currentView.currentPage
-        params.per_page ?= @_currentView.perPage
+        params.current_page = @_currentView.currentPage
+        params.per_page = @_currentView.perPage
 
         url = window.location.pathname + "?" + $.param(params)
 
