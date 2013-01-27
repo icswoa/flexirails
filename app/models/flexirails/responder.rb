@@ -4,11 +4,12 @@ module Flexirails
     attr_reader :offset, :limit, :current_page, :per_page
 
     def initialize params
-      pagination = params.fetch(:pagination) { Hash.new }
+      pagination = params || Hash.new
+
       @current_page = pagination.fetch(:current_page) { 1 }.to_i
       @per_page = pagination.fetch(:per_page) { 25 }.to_i
 
-      @offset = (current_page-1) * per_page 
+      @offset = (current_page-1) * per_page
       @limit = per_page
     end
 
@@ -26,7 +27,7 @@ module Flexirails
 
     def rows
       raw_rows = query offset, limit
-      raw_rows.map { |object| pluck object } 
+      raw_rows.map { |object| pluck object }
     end
   end
 end

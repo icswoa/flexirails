@@ -1,7 +1,7 @@
 # encoding: utf-8
 module Flexirails
   class View
-    attr_reader :current_page, :per_page, :responder
+    attr_reader :responder
 
     delegate :current_page, :per_page, to: :responder
 

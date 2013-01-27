@@ -117,10 +117,14 @@
       request = $.ajax({
         type: 'GET',
         url: @_url,
-        data: this.buildFlexiOptions(),
+        data: @buildFlexiOptions(),
         dataType: 'json'
       })
       request.done @buildFlexiview
+
+      if window.history?
+        url = window.location.pathname + "?current_page=#{@_currentView.currentPage}&per_page=#{@_currentView.perPage}"
+        window.history.pushState(null, null, url)
 
       @loadingData = true
       @appendResults = false
@@ -224,9 +228,9 @@
       opts = {}
 
       $.extend(opts, options)
-      opts.pagination = {}
-      opts.pagination.current_page = @_currentView.currentPage
-      opts.pagination.per_page = @_currentView.perPage
+      opts = {}
+      opts.current_page = @_currentView.currentPage
+      opts.per_page = @_currentView.perPage
 
       opts.limit = @_defaults.limitFetchResultsTo
       opts.offset = 0
