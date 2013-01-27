@@ -3,6 +3,27 @@
 #  Copyright 2010 - 2013, Raphael Randschau
 #  License: MIT
 
+getUrlParts = (url) ->
+  # url contains your data.
+  qs = url.indexOf("?")
+  return {} if qs is -1
+
+  fr = url.indexOf("#")
+  q = ""
+  q = if (fr is -1) then url.substr(qs+1) else url.substr(qs+1, fr-qs-1)
+  parts = q.split("&")
+  vars = {}
+  for part, i in parts
+    p = part.split("=")
+    if p[1]
+      vars[decodeURIComponent(p[0])] = decodeURIComponent(p[1])
+    # else
+    #   vars[decodeURIComponent(p[0])] = ""
+
+  # vars contain all the variables in an array.
+  return vars;
+
+
 (($, window) ->
   pluginName = 'flexirails'
   document = window.document
@@ -179,24 +200,26 @@
         @appendFlexiData()
         if (@_currentView.currentPage is @_pagination.last)
           $(@element).find(".js-fr-from-page").removeAttr('disabled')
-
-          if window.history?
-            url = window.location.pathname + "?current_page=#{@_currentView.currentPage}&per_page=#{@_currentView.perPage}"
-            window.history.pushState({
-              turbolinks: true
-              position: Date.now()
-            }, null, url)
+          @updateURI()
       else
         @appendResults = false;
         $(@element).find(".js-fr-from-page").removeAttr('disabled')
         $(@element).find(".flexirails-container").trigger("complete")
+        @updateURI()
 
-        if window.history?
-          url = window.location.pathname + "?current_page=#{@_currentView.currentPage}&per_page=#{@_currentView.perPage}"
-          window.history.pushState({
-            turbolinks: true
-            position: Date.now()
-          }, null, url)
+    updateURI: ->
+      if window.history?
+        params = getUrlParts(window.location.href)
+
+        params.current_page ?= @_currentView.currentPage
+        params.per_page ?= @_currentView.perPage
+
+        url = window.location.pathname + "?" + $.param(params)
+
+        window.history.pushState({
+          turbolinks: true
+          position: Date.now()
+        }, null, url)
 
     appendFlexiData: ->
       if ((@_currentView.perPage * (@_currentView.currentPage - 1) + @loadedRows) < @_currentView.totalResults)
