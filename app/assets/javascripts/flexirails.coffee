@@ -122,10 +122,6 @@
       })
       request.done @buildFlexiview
 
-      if window.history?
-        url = window.location.pathname + "?current_page=#{@_currentView.currentPage}&per_page=#{@_currentView.perPage}"
-        window.history.pushState(null, null, url)
-
       @loadingData = true
       @appendResults = false
 
@@ -183,10 +179,24 @@
         @appendFlexiData()
         if (@_currentView.currentPage is @_pagination.last)
           $(@element).find(".js-fr-from-page").removeAttr('disabled')
+
+          if window.history?
+            url = window.location.pathname + "?current_page=#{@_currentView.currentPage}&per_page=#{@_currentView.perPage}"
+            window.history.pushState({
+              turbolinks: true
+              position: Date.now()
+            }, null, url)
       else
         @appendResults = false;
         $(@element).find(".js-fr-from-page").removeAttr('disabled')
         $(@element).find(".flexirails-container").trigger("complete")
+
+        if window.history?
+          url = window.location.pathname + "?current_page=#{@_currentView.currentPage}&per_page=#{@_currentView.perPage}"
+          window.history.pushState({
+            turbolinks: true
+            position: Date.now()
+          }, null, url)
 
     appendFlexiData: ->
       if ((@_currentView.perPage * (@_currentView.currentPage - 1) + @loadedRows) < @_currentView.totalResults)
