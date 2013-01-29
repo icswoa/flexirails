@@ -13,6 +13,10 @@ module Flexirails
       raise 'ImplentationMissing'
     end
 
+    def sortable_columns
+      return %w()
+    end
+
     def columns
       raise 'ImplentationMissing'
     end
@@ -44,6 +48,7 @@ module Flexirails
             :title => t(column),
             :attribute => column,
             :visible => 1,
+            :sortable => sortable_columns.include?(column)
           }
         }
       }

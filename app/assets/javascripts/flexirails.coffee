@@ -95,9 +95,13 @@ getUrlParts = (url) ->
     init: ->
       @initializingView = true;
 
+      parts = getUrlParts(window.location.href)
+
       @_currentView.totalResults or= 1
       @_currentView.currentPage or= @_currentView.current_page or 1
       @_currentView.perPage or= @_currentView.per_page or 1
+      @_currentView.orderAttribute = parts.order
+      @_currentView.orderDirection = parts.direction
 
       @_currentView.currentPage = if @_currentView.hasOwnProperty('currentPage') then parseInt(@_currentView.currentPage, 10) else 1
       @_currentView.perPage = if @_currentView.hasOwnProperty('perPage') then parseInt(@_currentView.perPage, 10) else @_defaults.perPage
@@ -129,6 +133,7 @@ getUrlParts = (url) ->
       $(@element).on "click",  "a[name=toLastPage]", @paginateToLastPage
       $(@element).on "change", ":input[name=current_page_box]", @paginateToAnyPage
       $(@element).on "change", ":input[name=per_page]", @changePerPage
+      $(@element).on "click", "th[data-attribute]", @sortColumns
 
     reloadFlexidata: ->
       if (!@_url? or @dontExecuteQueries or @initializingView or @loadingData)
@@ -146,6 +151,37 @@ getUrlParts = (url) ->
       @loadingData = true
       @appendResults = false
 
+    sortColumns: (evt) =>
+      colAttribute = $(evt.currentTarget).attr 'data-attribute'
+      column = null
+      for col in @_currentView.cols
+        column = col if col.attribute is colAttribute
+
+      return unless column.sortable
+
+      params = $.url(window.location.href).param()
+
+      new_order_by = colAttribute
+      old_order_by = @_currentView.orderAttribute
+      direction = @_currentView.orderDirection
+
+      if old_order_by is new_order_by
+        if direction is 'ASC'
+          direction = 'DESC'
+        else if direction is 'DESC'
+          direction = null
+      else
+        direction = 'ASC'
+
+      @_currentView.orderAttribute = new_order_by
+      if direction?
+        @_currentView.orderDirection = direction
+      else
+        delete @_currentView.orderDirection
+        delete @_currentView.orderAttribute
+
+      @reloadFlexidata()
+
     buildFlexiview: (data, textStatus, XMLHttpRequest) =>
       @_currentView.totalResults = parseInt(data.total, 10) || 0
 
@@ -161,7 +197,7 @@ getUrlParts = (url) ->
         header = document.createElement("tr")
         for col in @_currentView.cols
           th = document.createElement('th')
-          th.className = col.attribute
+          th.setAttribute "data-attribute", col.attribute
           th.appendChild(document.createTextNode(col.title))
           header.appendChild(th)
 
@@ -218,6 +254,13 @@ getUrlParts = (url) ->
         params.current_page = @_currentView.currentPage
         params.per_page = @_currentView.perPage
 
+        if @_currentView.orderAttribute?
+          params.order = @_currentView.orderAttribute
+          params.direction = @_currentView.orderDirection
+        else
+          delete params.order
+          delete params.direction
+
         url = window.location.pathname + "?" + $.param(params)
 
         window.history.pushState(null, null, url)
@@ -265,6 +308,8 @@ getUrlParts = (url) ->
 
       opts.current_page = @_currentView.currentPage
       opts.per_page = @_currentView.perPage
+      opts.order = @_currentView.orderAttribute
+      opts.direction = @_currentView.orderDirection
 
       opts.limit = @_defaults.limitFetchResultsTo
       opts.offset = 0
