@@ -195,17 +195,21 @@ getUrlParts = (url) ->
       @setupFirstLastColumns()
 
       @loadingData = false
-
-      if ((@loadedRows < @_currentView.perPage) && (@loadedRows < @_currentView.totalResults))
-        @appendFlexiData()
-        if (@_currentView.currentPage is @_pagination.last)
-          $(@element).find(".js-fr-from-page").removeAttr('disabled')
-          @updateURI()
+      offset = @_currentView.perPage * (@_currentView.currentPage - 1)
+      if offset > @_currentView.totalResults
+        @_currentView.currentPage = 1
+        @reloadFlexidata()
       else
-        @appendResults = false;
-        $(@element).find(".js-fr-from-page").removeAttr('disabled')
-        $(@element).find(".flexirails-container").trigger("complete")
-        @updateURI()
+        if ((@loadedRows < @_currentView.perPage) && (@loadedRows < @_currentView.totalResults))
+          @appendFlexiData()
+          if (@_currentView.currentPage is @_pagination.last)
+            $(@element).find(".js-fr-from-page").removeAttr('disabled')
+            @updateURI()
+        else
+          @appendResults = false;
+          $(@element).find(".js-fr-from-page").removeAttr('disabled')
+          $(@element).find(".flexirails-container").trigger("complete")
+          @updateURI()
 
     updateURI: ->
       if window.history?
@@ -216,10 +220,7 @@ getUrlParts = (url) ->
 
         url = window.location.pathname + "?" + $.param(params)
 
-        window.history.pushState({
-          turbolinks: true
-          position: Date.now()
-        }, null, url)
+        window.history.pushState(null, null, url)
 
     appendFlexiData: ->
       if ((@_currentView.perPage * (@_currentView.currentPage - 1) + @loadedRows) < @_currentView.totalResults)
@@ -258,10 +259,10 @@ getUrlParts = (url) ->
       return _tr
 
     buildFlexiOptions: (options, override) ->
-      opts = {}
+      opts = getUrlParts(window.location.href)
 
       $.extend(opts, options)
-      opts = {}
+
       opts.current_page = @_currentView.currentPage
       opts.per_page = @_currentView.perPage
 
@@ -379,8 +380,8 @@ getUrlParts = (url) ->
           "results"           : @t('results.numberOf', this)
         "resultsPerPage"      : resultsPerPage
       navigation = '<div class="results">'+
-            '<span class="total_results">1</span>'+
-            data.locales.results + ', '+
+            '<span class="total_results">1</span> '+
+            data.locales.results + ',&nbsp;'+
           '</div>'+
           '<div>'+data.locales.resultsPerPage+'</div>'+
           '<div class="select">'+
