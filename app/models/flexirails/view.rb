@@ -1,12 +1,30 @@
 # encoding: utf-8
 module Flexirails
   class View
-    attr_reader :responder
+    attr_reader :offset, :limit, :current_page, :per_page, :order, :direction
 
-    delegate :current_page, :per_page, to: :responder
+    def initialize params
+      pagination = params || Hash.new
 
-    def initialize responder
-      @responder = responder
+      @current_page = pagination.fetch(:current_page) { 1 }.to_i
+      @per_page = pagination.fetch(:per_page) { 25 }.to_i
+      @order = sanitize(pagination.fetch(:order) { nil })
+      @direction = sanitize_direction(pagination.fetch(:direction) { nil })
+
+      @offset = (current_page-1) * per_page
+      @limit = per_page
+    end
+
+    def total
+      raise "ImplementationMissing"
+    end
+
+    def query offset, limit
+      raise "ImplementationMissing"
+    end
+
+    def pluck object
+      raise "ImplementationMissing"
     end
 
     def data_url
@@ -19,6 +37,15 @@ module Flexirails
 
     def columns
       raise 'ImplentationMissing'
+    end
+
+    def order_results?
+      return order.present? && direction.present?
+    end
+
+    def rows
+      raw_rows = query offset, limit
+      raw_rows.map { |object| pluck object }
     end
 
     def i18n_scope clazz = self.class
@@ -56,8 +83,8 @@ module Flexirails
 
     def as_json
       {
-        rows: responder.rows,
-        total: responder.total,
+        rows: rows,
+        total: total,
         currentPage: current_page,
         perPage: per_page
       }
@@ -86,6 +113,14 @@ module Flexirails
   });
 </script>
 CONTENT
+    end
+
+    private
+    def sanitize_direction direction
+      return %w(ASC DESC).include?(direction) ? direction : nil
+    end
+    def sanitize attribute
+      return columns.include?(attribute) ? attribute : nil
     end
   end
 end
