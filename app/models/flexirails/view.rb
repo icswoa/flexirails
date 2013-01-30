@@ -4,7 +4,7 @@ module Flexirails
     attr_reader :offset, :limit, :current_page, :per_page, :order, :direction
 
     def initialize params
-      pagination = params || Hash.new
+      pagination = params.fetch(:pagination) { params || Hash.new }
 
       @current_page = pagination.fetch(:current_page) { 1 }.to_i
       @per_page = pagination.fetch(:per_page) { 25 }.to_i
@@ -78,6 +78,15 @@ module Flexirails
             :sortable => sortable_columns.include?(column)
           }
         }
+      }
+    end
+
+    def pagination_hash
+      return {
+        current_page: self.current_page,
+        per_page: self.per_page,
+        order: self.order,
+        direction: self.direction
       }
     end
 

@@ -4,25 +4,7 @@
 #  License: MIT
 
 getUrlParts = (url) ->
-  # url contains your data.
-  qs = url.indexOf("?")
-  return {} if qs is -1
-
-  fr = url.indexOf("#")
-  q = ""
-  q = if (fr is -1) then url.substr(qs+1) else url.substr(qs+1, fr-qs-1)
-  parts = q.split("&")
-  vars = {}
-  for part, i in parts
-    p = part.split("=")
-    if p[1]
-      vars[decodeURIComponent(p[0])] = decodeURIComponent(p[1])
-    # else
-    #   vars[decodeURIComponent(p[0])] = ""
-
-  # vars contain all the variables in an array.
-  return vars;
-
+  $.url(url).param()
 
 (($, window) ->
   pluginName = 'flexirails'
@@ -251,15 +233,17 @@ getUrlParts = (url) ->
       if window.history?
         params = getUrlParts(window.location.href)
 
-        params.current_page = @_currentView.currentPage
-        params.per_page = @_currentView.perPage
+        pagination = {}
+        pagination.current_page = @_currentView.currentPage
+        pagination.per_page = @_currentView.perPage
 
         if @_currentView.orderAttribute?
-          params.order = @_currentView.orderAttribute
-          params.direction = @_currentView.orderDirection
+          pagination.order = @_currentView.orderAttribute
+          pagination.direction = @_currentView.orderDirection
         else
-          delete params.order
-          delete params.direction
+          delete pagination.order
+          delete pagination.direction
+        params.pagination = pagination
 
         url = window.location.pathname + "?" + $.param(params)
 
@@ -306,10 +290,11 @@ getUrlParts = (url) ->
 
       $.extend(opts, options)
 
-      opts.current_page = @_currentView.currentPage
-      opts.per_page = @_currentView.perPage
-      opts.order = @_currentView.orderAttribute
-      opts.direction = @_currentView.orderDirection
+      opts.pagination = {}
+      opts.pagination.current_page = @_currentView.currentPage
+      opts.pagination.per_page = @_currentView.perPage
+      opts.pagination.order = @_currentView.orderAttribute
+      opts.pagination.direction = @_currentView.orderDirection
 
       opts.limit = @_defaults.limitFetchResultsTo
       opts.offset = 0
