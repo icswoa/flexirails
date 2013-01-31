@@ -1,8 +1,21 @@
 require "flexirails/version"
 
-if defined?(Rails)
-  require "flexirails/engine"
+module Flexirails
 end
 
-module Flexirails
+if defined?(Rails::Railtie)
+  module Flexirails
+    class Railtie < ::Rails::Railtie
+    end
+  end
+end
+
+begin
+  Rails::Engine
+rescue
+else
+  module Flexirails
+    class Engine < Rails::Engine
+    end
+  end
 end

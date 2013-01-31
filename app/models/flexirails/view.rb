@@ -1,18 +1,27 @@
 # encoding: utf-8
 module Flexirails
   class View
-    attr_reader :offset, :limit, :current_page, :per_page, :order, :direction
+    attr_reader :offset, :limit, :current_page, :per_page, :order, :direction, :url_params
 
-    def initialize params
+    def initialize params, url_params = {}
       pagination = params.fetch(:pagination) { params || Hash.new }
 
       @current_page = pagination.fetch(:current_page) { 1 }.to_i
       @per_page = pagination.fetch(:per_page) { 25 }.to_i
       @order = sanitize(pagination.fetch(:order) { nil })
       @direction = sanitize_direction(pagination.fetch(:direction) { nil })
+      @url_params = url_params
+
+      if @current_page > total_page_count
+        @current_page = 1
+      end
 
       @offset = (current_page-1) * per_page
       @limit = per_page
+    end
+
+    def total_page_count
+      return (self.total.to_f / self.per_page.to_f).ceil
     end
 
     def total
@@ -27,8 +36,30 @@ module Flexirails
       raise "ImplementationMissing"
     end
 
-    def data_url
+    def url(*args)
       raise 'ImplentationMissing'
+    end
+
+    def has_prev_path
+      return self.current_page > 1
+    end
+    def prev_path
+      return has_prev_path ? url({pagination: pagination_hash.merge({current_page: current_page - 1})}.merge(url_params)) : first_path
+    end
+    def first_path
+      return url({pagination: pagination_hash.merge({current_page: 1})}.merge(url_params))
+    end
+    def has_next_path
+      return self.current_page < total_page_count
+    end
+    def next_path
+      return has_next_path ? url({pagination: pagination_hash.merge({current_page: current_page + 1})}.merge(url_params)) : last_path
+    end
+    def last_path
+      return url({pagination: pagination_hash.merge({current_page: self.total_page_count})}.merge(url_params))
+    end
+    def current_url(options = {})
+      return url({pagination: pagination_hash}.merge(url_params).merge(options))
     end
 
     def sortable_columns
@@ -44,8 +75,7 @@ module Flexirails
     end
 
     def rows
-      raw_rows = query offset, limit
-      raw_rows.map { |object| pluck object }
+      return @rows ||= query(offset, limit)
     end
 
     def i18n_scope clazz = self.class
@@ -62,23 +92,13 @@ module Flexirails
       return scopes
     end
 
-    def t name, args = {}
-      I18n.t([i18n_scope,name].compact.join('.'), { default: i18n_default(name) }.merge(args))
+    def render_column column, row, context
+      method_to_call = "render_#{column.gsub(/\./, '_')}"
+      return self.send method_to_call.to_sym, row, context
     end
 
-    def to_h
-      return {
-        :currentPage => self.current_page,
-        :perPage => self.per_page,
-        :cols => columns.map { |column|
-          {
-            :title => t(column),
-            :attribute => column,
-            :visible => 1,
-            :sortable => sortable_columns.include?(column)
-          }
-        }
-      }
+    def t name, args = {}
+      I18n.t([i18n_scope,name].compact.join('.'), { default: i18n_default(name) }.merge(args))
     end
 
     def pagination_hash
@@ -88,40 +108,6 @@ module Flexirails
         order: self.order,
         direction: self.direction
       }
-    end
-
-    def as_json
-      {
-        rows: rows,
-        total: total,
-        currentPage: current_page,
-        perPage: per_page
-      }
-    end
-
-    def as_html
-      return <<-CONTENT
-<div class="flexirails-container"></div>
-<script type="text/javascript" async>
-  var aView = JSON.parse('#{to_h.to_json}');
-  var aLocales = {
-    no_results: '#{I18n.t(:'flexirails.no_results')}',
-    results: {
-      perPage         :   '#{I18n.t(:'flexirails.navigation.per_page')}',
-      page            :   '#{I18n.t(:'flexirails.navigation.page')}',
-      of              :   '#{I18n.t(:'flexirails.navigation.of')}',
-      total           :   '#{I18n.t(:'flexirails.navigation.results')}',
-      numberOf        :   '#{I18n.t(:'flexirails.results')}'
-    }
-  }
-
-  $('.flexirails-container').flexirails({
-    view: aView,
-    url: '#{self.data_url}',
-    locales: aLocales
-  });
-</script>
-CONTENT
     end
 
     private

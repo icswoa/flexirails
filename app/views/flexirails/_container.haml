@@ -1,0 +1,19 @@
+.flexirails-container
+  = render partial: '/flexirails/navigation', locals: { view: view }
+
+  .flexirails
+    %table
+      %thead
+        %tr
+          - view.columns.each do |column|
+            / todo sortable logic
+            %th{ "data-attribute" => column }
+              = view.t(column)
+      %tbody
+        - view.rows.each do |row|
+          %tr.flexirow{ class: "row-#{row.id}" }
+            - view.columns.each do |column|
+              %td
+                = view.render_column column, row, self
+
+  = render partial: '/flexirails/navigation', locals: { view: view }
