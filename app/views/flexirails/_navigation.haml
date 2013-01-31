@@ -9,17 +9,14 @@
 
   .select
     %select{ id: "per_page", name: "per_page", :onchange => "Turbolinks.visit($(this).find('option:selected').attr('data-url')); return false;"}
-      %option{ value: "5", selected: view.per_page == 5, :"data-url" => view.current_url({pagination: view.pagination_hash.merge({per_page: 5})}) }
-        5
-      }
-      }
-      %option{ value: "25", selected: view.per_page == 25, :"data-url" => view.current_url({pagination: view.pagination_hash.merge({per_page: 25})}) }
+      %option{ value: "5", selected: view.per_page == 5, :"data-url" => view.url(adjust_path("pagination.per_page", 5)) } 5
+      %option{ value: "25", selected: view.per_page == 25, :"data-url" => view.url(adjust_path("pagination.per_page", 25)) }
         25
-      %option{ value: "50", selected: view.per_page == 50, :"data-url" => view.current_url({pagination: view.pagination_hash.merge({per_page: 50})}) }
+      %option{ value: "50", selected: view.per_page == 50, :"data-url" => view.url(adjust_path("pagination.per_page", 50)) }
         50
-      %option{ value: "100", selected: view.per_page == 100, :"data-url" => view.current_url({pagination: view.pagination_hash.merge({per_page: 100})}) }
+      %option{ value: "100", selected: view.per_page == 100, :"data-url" => view.url(adjust_path("pagination.per_page", 100)) }
         100
-      %option{ value: "250", selected: view.per_page == 250, :"data-url" => view.current_url({pagination: view.pagination_hash.merge({per_page: 250})}) }
+      %option{ value: "250", selected: view.per_page == 250, :"data-url" => view.url(adjust_path("pagination.per_page", 250)) }
         250
 
   .pagination
