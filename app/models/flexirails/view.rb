@@ -79,7 +79,16 @@ module Flexirails
 
     def render_column column, row, context
       method_to_call = "render_#{column.gsub(/\./, '_')}"
-      return self.send method_to_call.to_sym, row, context
+      if self.respond_to?(method_to_call.to_sym)
+        return self.send method_to_call.to_sym, row, context
+      else
+        parts = column.split('.').map(&:to_sym)
+        object = row
+        parts.each do |part|
+          object = object.send(part)
+        end
+        return object
+      end
     end
 
     def t name, args = {}
