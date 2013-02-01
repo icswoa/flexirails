@@ -14,31 +14,4 @@ module FlexirailsHelper
   def render_flexirails_view view
     return render partial: '/flexirails/container', locals: { view: view }
   end
-
-  def adjust_path key_path, value = nil
-    key_path = key_path.split('.')
-    key = key_path[-1]
-
-    scopes = []
-    scope = Hash.new(request.query_parameters)
-
-    key_path[0..-2].each do |part|
-      scopes << scope
-      scope = scope.fetch(part) { Hash.new }
-    end
-
-    if value.nil?
-      scope.delete key
-    else
-      scope[key] = value
-    end
-
-    key_path[0..-2].reverse.each_with_index do |part|
-      parent = scopes.pop
-      parent[part] = scope
-      scope = parent
-    end
-
-    scope
-  end
 end

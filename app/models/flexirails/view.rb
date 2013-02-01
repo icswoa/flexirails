@@ -1,16 +1,16 @@
 # encoding: utf-8
 module Flexirails
   class View
-    attr_reader :offset, :limit, :current_page, :per_page, :order, :direction, :url_params
+    attr_reader :offset, :limit, :current_page, :per_page, :order, :direction, :params
 
-    def initialize params, url_params = {}
+    def initialize params
+      @params = params
       pagination = params.fetch(:pagination) { params || Hash.new }
 
       @current_page = pagination.fetch(:current_page) { 1 }.to_i
       @per_page = pagination.fetch(:per_page) { 25 }.to_i
       @order = sanitize(pagination.fetch(:order) { nil })
       @direction = sanitize_direction(pagination.fetch(:direction) { nil })
-      @url_params = url_params
 
       if @current_page > total_page_count
         @current_page = 1
@@ -43,23 +43,8 @@ module Flexirails
     def has_prev_path
       return self.current_page > 1
     end
-    def prev_path
-      return has_prev_path ? url({pagination: pagination_hash.merge({current_page: current_page - 1})}.merge(url_params)) : first_path
-    end
-    def first_path
-      return url({pagination: pagination_hash.merge({current_page: 1})}.merge(url_params))
-    end
     def has_next_path
       return self.current_page < total_page_count
-    end
-    def next_path
-      return has_next_path ? url({pagination: pagination_hash.merge({current_page: current_page + 1})}.merge(url_params)) : last_path
-    end
-    def last_path
-      return url({pagination: pagination_hash.merge({current_page: self.total_page_count})}.merge(url_params))
-    end
-    def current_url(options = {})
-      return url({pagination: pagination_hash}.merge(url_params).merge(options))
     end
 
     def sortable_columns

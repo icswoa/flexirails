@@ -1,4 +1,0 @@
-require 'flexirails'
-require 'rails'
-
-

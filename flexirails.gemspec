@@ -15,6 +15,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Flexirails::VERSION
 
-  gem.add_dependency "jquery-rails"
+  gem.add_dependency "url_plumber"
 end
 
