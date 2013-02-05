@@ -1,10 +1,10 @@
 .flexirails-container
   .flexirails
+    / todo sortable logic
     %table
       %thead
         %tr
           - view.columns.each do |column|
-            / todo sortable logic
             %th{ "data-attribute" => column }
               = view.t(column)
       %tbody
