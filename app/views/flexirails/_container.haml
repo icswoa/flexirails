@@ -6,7 +6,10 @@
         %tr
           - view.columns.each do |column|
             %th{ "data-attribute" => column }
-              = view.t(column)
+              - if view.sortable_columns.include?(column)
+                = link_to view.t(column), url_batch_plumb({"pagination.order" => column, "pagination.direction" => view.next_pagination_direction(column)})
+              - else
+                = view.t(column)
       %tbody
         - view.rows.each do |row|
           %tr.flexirow{ class: "row-#{row.id}" }

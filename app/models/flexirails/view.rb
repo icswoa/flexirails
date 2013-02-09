@@ -20,6 +20,22 @@ module Flexirails
       @limit = per_page
     end
 
+    def next_pagination_direction column
+      if order == column
+        if direction == "DESC"
+          nil
+        else
+          if direction == nil
+            "ASC"
+          else
+            "DESC"
+          end
+        end
+      else
+        "ASC"
+      end
+    end
+
     def total_page_count
       return (self.total.to_f / self.per_page.to_f).ceil
     end

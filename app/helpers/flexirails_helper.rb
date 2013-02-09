@@ -14,4 +14,10 @@ module FlexirailsHelper
   def render_flexirails_view view
     return render partial: '/flexirails/container', locals: { view: view }
   end
+  def url_plumb(key, value)
+    url_for(::UrlPlumber::Plumber.new(params).plumb(key => value))
+  end
+  def url_batch_plumb(hash)
+    url_for(::UrlPlumber::Plumber.new(params).plumb(hash))
+  end
 end
