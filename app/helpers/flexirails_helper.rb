@@ -12,7 +12,7 @@ module FlexirailsHelper
     return '<svg version="1.2" baseProfile="tiny" id="Navigation_right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 512 512" overflow="inherit" xml:space="preserve"> <polygon points="360.124,255.513 148.535,422.442 148.537,88.58 "/> </svg>'
   end
   def render_flexirails_view view, opts = {}
-    return render partial: '/flexirails/container', locals: { view: view, table_class: opts.fetch("class") { "" } }
+    return render partial: '/flexirails/container', locals: { view: view, table_class: opts.fetch(:class) { "" } }
   end
   def url_plumb(key, value)
     url_for(::UrlPlumber::Plumber.new(params).plumb(key => value))
