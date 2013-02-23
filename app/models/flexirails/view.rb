@@ -93,6 +93,10 @@ module Flexirails
       return scopes
     end
 
+    def t name, args = {}
+      I18n.t([i18n_scope,name].compact.join('.'), { default: i18n_default(name) }.merge(args))
+    end
+
     def render_column column, row, context
       method_to_call = "render_#{column.gsub(/\./, '_')}"
       if self.respond_to?(method_to_call.to_sym)
@@ -105,10 +109,6 @@ module Flexirails
         end
         return object
       end
-    end
-
-    def t name, args = {}
-      I18n.t([i18n_scope,name].compact.join('.'), { default: i18n_default(name) }.merge(args))
     end
 
     def pagination_hash
