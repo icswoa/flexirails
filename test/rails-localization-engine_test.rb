@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class RailsLocalizationEngineTest < ActiveSupport::TestCase
+class FlexirailsEngineTest < ActiveSupport::TestCase
   test "module is defined" do
-    assert_kind_of Module, RailsAssetLocalization
+    assert_kind_of Module, Flexirails
   end
 end
