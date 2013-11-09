@@ -47,4 +47,19 @@ class NavigationTest < ActionDispatch::IntegrationTest
 
     Capybara.use_default_driver
   end
+
+  test "handles current_page properly on per_page changes" do
+    Capybara.current_driver = Capybara.javascript_driver
+
+    visit "/static"
+
+    page.select("5", :from => "per_page")
+    find(".pagination .last").click
+    assert_equal "10", find("#current_page").value
+
+    page.select("50", :from => "per_page")
+    assert_equal "1", find("#current_page").value
+
+    Capybara.use_default_driver
+  end
 end
