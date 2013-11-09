@@ -389,3 +389,8 @@ RailsLocalizationEngineTest: test_module_is_defined
 FlexirailsEngineTest: test_module_is_defined
 --------------------------------------------
   [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+FlexirailsEngineTest: test_module_is_defined
+--------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
