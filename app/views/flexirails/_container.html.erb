@@ -1,0 +1,28 @@
+<div class="flexirails-container">
+  <div class="flexirails">
+    <table class="<%= table_class %>">
+      <thead>
+        <tr>
+          <%- view.columns.each do |column| -%>
+            <th data-attribute="<%= column %>">
+              <%- if view.sortable_columns.include?(column) %>
+                <%= link_to view.t(column), url_batch_plumb({"pagination.order" => column, "pagination.direction" => view.next_pagination_direction(column)}) %>
+              <%- else -%>
+                <%= view.t(column) %>
+              <%- end %>
+            </th>
+          <%- end -%>
+        </tr>
+      </thead>
+      <tbody>
+        <%- view.rows.each do |row| -%>
+          <tr class="flexirow row-<%= row.id %>">
+            <%- view.columns.each do |column| %>
+              <td><%= view.render_column column, row, self %></td>
+            <%- end -%>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+</div>

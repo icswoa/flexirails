@@ -4,8 +4,6 @@ require 'rails/all'
 
 Bundler.require
 
-require 'flexirails'
-
 module Dummy
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

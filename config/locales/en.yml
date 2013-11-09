@@ -1,0 +1,8 @@
+en:
+  flexirails:
+    no_results: 'No results'
+    navigation:
+      of: ' of '
+      per_page: 'Results per page '
+      page: 'Page '
+    results: 'Results'

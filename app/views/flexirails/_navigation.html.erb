@@ -1,0 +1,66 @@
+<nav class="flexirails">
+  <div class="results">
+    <span class="total_results">
+      <%= view.total %>
+    </span>
+    <%= I18n.t(:'flexirails.results') %>,
+    <div><%= I18n.t(:'flexirails.navigation.per_page') %></div>
+  </div>
+
+  <div class="select">
+    <select id="per_page" name="per_page" onchange="url = $(this).find('option:selected').attr('data-url'); ('Turbolinks' in window) ? Turbolinks.visit(url) : window.location = url; return false;">
+      <option value="5" <%= view.per_page == 5 ? 'selected' : '' %> data-url="<%= url_plumb("pagination.per_page", 5) %>">
+        5
+      </option>
+      <option value="25" <%= view.per_page == 25 ? 'selected' : '' %> data-url="<%= url_plumb("pagination.per_page", 25) %>">
+        25
+      </option>
+      <option value="50" <%= view.per_page == 50 ? 'selected' : '' %> data-url="<%= url_plumb("pagination.per_page", 50) %>">
+        50
+      </option>
+      <option value="100" <%= view.per_page == 100 ? 'selected' : '' %> data-url="<%= url_plumb("pagination.per_page", 100) %>">
+        100
+      </option>
+      <option value="250" <%= view.per_page == 250 ? 'selected' : '' %> data-url="<%= url_plumb("pagination.per_page", 250) %>">
+        250
+      </option>
+    </select>
+  </div>
+
+  <div class="pagination">
+    <%= link_to url_plumb("pagination.current_page", nil) do %>
+      <span class="first">
+        <%= raw pagination_first_icon %>
+      </span>
+    <%- end -%>
+    <%= link_to view.has_prev_path ? url_plumb("pagination.current_page", view.current_page - 1) : url_plumb("pagination.current_page", nil) do %>
+      <span class="prev">
+        <%= raw pagination_prev_icon %>
+      </span>
+    <%- end -%>
+
+    <div class="page">
+      <span>
+        <%= I18n.t(:'flexirails.navigation.page') %>
+      </span>
+      <input name="current_page_box" type="text"  value="<%= view.current_page %>" onchange="window.location = $(this).data('changeUrl').replace('XX', $(this).val());" data-change-url="<%= url_plumb("pagination.current_page", 'XX') %>">
+      <span>
+        <%= I18n.t(:'flexirails.navigation.of') %>
+      </span>
+      <span class="to">
+        <%= view.total_page_count %>
+      </span>
+    </div>
+
+    <%= link_to view.has_next_path ? url_plumb("pagination.current_page", view.current_page + 1) : url_plumb("pagination.current_page", view.total_page_count) do %>
+      <span class="next">
+        <%= raw pagination_next_icon %>
+      </span>
+    <%- end -%>
+    <%= link_to url_plumb("pagination.current_page", view.total_page_count) do %>
+      <span class="last">
+        <%= raw pagination_last_icon %>
+      </span>
+    <%- end -%>
+  </div>
+</nav>
