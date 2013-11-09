@@ -43,12 +43,8 @@ module Flexirails
       raise "ImplementationMissing"
     end
 
-    def query offset, limit
+    def query offset = self.offset, limit = self.limit
       raise "ImplementationMissing"
-    end
-
-    def url(*args)
-      raise 'ImplentationMissing'
     end
 
     def has_prev_path
@@ -63,7 +59,7 @@ module Flexirails
     end
 
     def columns
-      raise 'ImplentationMissing'
+      sortable_columns
     end
 
     def order_results?
