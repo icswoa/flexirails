@@ -43,7 +43,7 @@
       <span>
         <%= I18n.t(:'flexirails.navigation.page') %>
       </span>
-      <input name="current_page_box" type="text"  value="<%= view.current_page %>" onchange="window.location = $(this).data('changeUrl').replace('XX', $(this).val());" data-change-url="<%= url_plumb("pagination.current_page", 'XX') %>">
+      <input name="current_page_box" type="text"  value="<%= view.current_page %>" onchange="url = $(this).data('changeUrl').replace('XX', $(this).val()); ('Turbolinks' in window) ? Turbolinks.visit(url) : window.location = url; return false;" data-change-url="<%= url_plumb("pagination.current_page", 'XX') %>">
       <span>
         <%= I18n.t(:'flexirails.navigation.of') %>
       </span>
