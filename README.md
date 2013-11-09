@@ -155,6 +155,13 @@ class PeopleView < ::Flexirails::View
 end
 ```
 
+### TODO
+
+- enhance the test suite
+- refactor the small, inlined- js a little. its ugly as hell
+- refactor the css. its ugly as hell as well
+- maybe add a small abstraction for ActiveRecord Views
+
 ### Contributing
 
 1. Fork it
