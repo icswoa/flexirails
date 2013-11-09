@@ -28,13 +28,13 @@
   </div>
 
   <div class="pagination">
-    <%= link_to url_plumb("pagination.current_page", nil) do %>
-      <span class="first">
+    <%= link_to url_plumb("pagination.current_page", nil), :class => "first" do %>
+      <span>
         <%= raw pagination_first_icon %>
       </span>
     <%- end -%>
-    <%= link_to view.has_prev_path ? url_plumb("pagination.current_page", view.current_page - 1) : url_plumb("pagination.current_page", nil) do %>
-      <span class="prev">
+    <%= link_to view.has_prev_path ? url_plumb("pagination.current_page", view.current_page - 1) : url_plumb("pagination.current_page", nil), :class => "prev" do %>
+      <span>
         <%= raw pagination_prev_icon %>
       </span>
     <%- end -%>
@@ -52,13 +52,13 @@
       </span>
     </div>
 
-    <%= link_to view.has_next_path ? url_plumb("pagination.current_page", view.current_page + 1) : url_plumb("pagination.current_page", view.total_page_count) do %>
-      <span class="next">
+    <%= link_to view.has_next_path ? url_plumb("pagination.current_page", view.current_page + 1) : url_plumb("pagination.current_page", view.total_page_count), :class => "next" do %>
+      <span>
         <%= raw pagination_next_icon %>
       </span>
     <%- end -%>
-    <%= link_to url_plumb("pagination.current_page", view.total_page_count) do %>
-      <span class="last">
+    <%= link_to url_plumb("pagination.current_page", view.total_page_count), :class => "last" do %>
+      <span>
         <%= raw pagination_last_icon %>
       </span>
     <%- end -%>

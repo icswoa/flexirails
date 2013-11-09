@@ -41,6 +41,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    cliver (0.2.2)
     erubis (2.7.0)
     hike (1.2.3)
     i18n (0.6.5)
@@ -56,6 +57,11 @@ GEM
     multi_json (1.8.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    poltergeist (1.4.1)
+      capybara (~> 2.1.0)
+      cliver (~> 0.2.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -99,6 +105,7 @@ GEM
     tzinfo (0.3.38)
     url_plumber (0.1.2)
       activesupport (>= 3.0.0)
+    websocket-driver (0.3.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -109,5 +116,6 @@ DEPENDENCIES
   capybara
   flexirails!
   jquery-rails
+  poltergeist
   sass-rails
   sqlite3
