@@ -30,7 +30,7 @@
     .page
       %span
         = I18n.t(:'flexirails.navigation.page')
-      %input.js-fr-from-page{ name: "current_page_box", type: "text", value: view.current_page }
+      %input{ name: "current_page_box", type: "text", value: view.current_page, onchange: "window.location = $(this).data('changeUrl').replace('XX', $(this).val());", data: { :'change-url' => url_plumb("pagination.current_page", 'XX') } }
       %span
         = I18n.t(:'flexirails.navigation.of')
       %span.to
