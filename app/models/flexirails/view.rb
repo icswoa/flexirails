@@ -62,9 +62,10 @@ module Flexirails
       sortable_columns
     end
 
-    def order_results?
+    def order_query?
       return order.present? && direction.present?
     end
+    alias :order_results?, :order_query?
 
     def rows
       return @rows ||= query(offset, limit)
