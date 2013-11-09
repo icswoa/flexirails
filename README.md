@@ -5,8 +5,8 @@ Has support for partial rendering, turbolinks and i18n as well as basic sorting 
 If you want more abstraction you need to build it yourself.
 
 Look at the bright side: want to use bananadb? Go ahead.<br>
-Just wrote your self CSV-In-Memory-DB? No Problem.<br>
-Reading each row from /dev/null. Sure, why not?
+Just wrote your own CSV-In-Memory-DB? Use it!<br>
+Reading rows from /dev/null. Sure, why not?
 
 You are in control. Just need to know how!
 
