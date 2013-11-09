@@ -9,13 +9,60 @@ class StaticController < ApplicationController
   helper_method :static_view
 
   def items
+    index = 0
     [
-      Static.new(1, "James Tiberius Kirk"),
-      Static.new(2, "Commander Spock"),
-      Static.new(3, "Leonard McCoy"),
-      Static.new(4, "Montgomery Scott"),
-      Static.new(5, "Lieutenant Uhura"),
-      Static.new(6, "Hikaru Sulu")
-    ]
+      "Laura",
+      "Edie",
+      "Nicolasa",
+      "Celinda",
+      "Emeline",
+      "Dorcas",
+      "Josette",
+      "Sharell",
+      "Carmela",
+      "Lou",
+      "Felicitas",
+      "Stefany",
+      "Gidget",
+      "Rafaela",
+      "Shirlene",
+      "Luna",
+      "Angila",
+      "Pauline",
+      "Elba",
+      "Maritza",
+      "Donte",
+      "Clemente",
+      "Nella",
+      "Delaine",
+      "Clark",
+      "Majorie",
+      "Lance",
+      "Tomi",
+      "Fidel",
+      "Ettie",
+      "Claribel",
+      "Kylee",
+      "Antonietta",
+      "Dan",
+      "Love",
+      "Kandra",
+      "Shantell",
+      "Matt",
+      "Inge",
+      "Isaura",
+      "Cameron",
+      "Elana",
+      "Stanton",
+      "Tiara",
+      "Jeana",
+      "Daina",
+      "Nikki",
+      "Shondra",
+      "Chelsey",
+      "Jarret"
+      ].map { |name|
+        Static.new(index += 1, name)
+      }
   end
 end
