@@ -1,0 +1,386 @@
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+RailsLocalizationEngineTest: test_truth
+---------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+RailsLocalizationEngineTest: test_truth
+---------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------
+RailsLocalizationEngineTest: test_returns_assets_via_request
+------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:20:13 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:20:36 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 4ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:21:02 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:21:48 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:21:55 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:22:30 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 3ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:22:52 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 4ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:23:29 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:23:50 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:24:51 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+Started GET "/locales/en.json" for 127.0.0.1 at 2013-11-08 20:24:51 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"en"}
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:24:57 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+Started GET "/locales/en.json" for 127.0.0.1 at 2013-11-08 20:24:57 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"en"}
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:25:00 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+Started GET "/locales/en.json" for 127.0.0.1 at 2013-11-08 20:25:00 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"en"}
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:28:03 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+Started GET "/locales/en.json" for 127.0.0.1 at 2013-11-08 20:28:03 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"en"}
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:31:16 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+Started GET "/locales/en.json" for 127.0.0.1 at 2013-11-08 20:31:16 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"en"}
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+LocalesControllerTest: test_returns_empty_hash_for_unknown_locales
+------------------------------------------------------------------
+Started GET "/locales/fr.json" for 127.0.0.1 at 2013-11-08 20:31:16 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"fr"}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+LocalesControllerTest: test_returns_assets_via_request
+------------------------------------------------------
+Started GET "/locales/de.json" for 127.0.0.1 at 2013-11-08 20:32:38 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de"}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+Started GET "/locales/en.json" for 127.0.0.1 at 2013-11-08 20:32:38 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"en"}
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+LocalesControllerTest: test_returns_empty_hash_for_unknown_locales
+------------------------------------------------------------------
+Started GET "/locales/fr.json" for 127.0.0.1 at 2013-11-08 20:32:38 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"fr"}
+Completed 200 OK in 3ms (Views: 0.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------
+LocalesControllerTest: test_works_for_country_codes_as_well
+-----------------------------------------------------------
+Started GET "/locales/de-DE.json" for 127.0.0.1 at 2013-11-08 20:32:38 +0100
+Processing by RailsAssetLocalization::LocalesController#locale as JSON
+  Parameters: {"locale"=>"de-DE"}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+RailsLocalizationEngineTest: test_module_is_defined
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
