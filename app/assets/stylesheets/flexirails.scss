@@ -1,0 +1,55 @@
+.filter {
+  .row .columns {
+    height: 32px !important;
+    line-height: 32px !important;
+    margin-bottom: 3px;
+  }
+  margin-bottom: 5px;
+}
+
+div.flexirails {
+  overflow: scroll;
+}
+
+nav.flexirails {
+  div {
+    display: inline-block;
+  }
+  input {
+    display: inline-block;
+  }
+  .page {
+    input {
+      width: 50px;
+    }
+  }
+  svg {
+    fill: white;
+  }
+  .pagination a {
+    height: 32px;
+    line-height: 34px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.flexirails table {
+  width: 100%;
+  th {
+    text-align: left;
+  }
+  td {
+    padding: 5px;
+  }
+  td.actions {
+    span {
+      display: inline-block;
+    }
+
+    a {
+      min-width: 32px;
+      min-height: 32px;
+    }
+  }
+}
