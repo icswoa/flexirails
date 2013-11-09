@@ -7,7 +7,7 @@
     <div><%= I18n.t(:'flexirails.navigation.per_page') %></div>
   </div>
 
-  <div class="select">
+  <div>
     <select id="per_page" name="per_page" onchange="url = $(this).find('option:selected').attr('data-url'); ('Turbolinks' in window) ? Turbolinks.visit(url) : window.location = url; return false;">
       <option value="5" <%= view.per_page == 5 ? 'selected' : '' %> data-url="<%= url_plumb("pagination.per_page", 5) %>">
         5
@@ -43,7 +43,7 @@
       <span>
         <%= I18n.t(:'flexirails.navigation.page') %>
       </span>
-      <input name="current_page_box" type="text"  value="<%= view.current_page %>" onchange="url = $(this).data('changeUrl').replace('XX', $(this).val()); ('Turbolinks' in window) ? Turbolinks.visit(url) : window.location = url; return false;" data-change-url="<%= url_plumb("pagination.current_page", 'XX') %>">
+      <input name="current_page_box" type="text" value="<%= view.current_page %>" onchange="url = $(this).data('changeUrl').replace('XX', $(this).val()); ('Turbolinks' in window) ? Turbolinks.visit(url) : window.location = url; return false;" data-change-url="<%= url_plumb("pagination.current_page", 'XX') %>" id="current_page">
       <span>
         <%= I18n.t(:'flexirails.navigation.of') %>
       </span>
