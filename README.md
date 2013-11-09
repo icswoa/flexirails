@@ -4,7 +4,7 @@ ORM independent table view for Ruby on Rails.
 Has support for partial rendering, turbolinks and i18n as well as basic sorting and filtering facilities.
 If you want more abstraction you need to build it yourself.
 
-Look at the bright side: want to use mongodb? Go ahead.<br>
+Look at the bright side: want to use bananadb? Go ahead.<br>
 Just wrote your self CSV-In-Memory-DB? No Problem.<br>
 Reading each row from /dev/null. Sure, why not?
 
