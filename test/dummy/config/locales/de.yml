@@ -2,4 +2,7 @@ de:
   static_view:
     id: "Id"
     name: "Name"
-    full_name: "Ganzer Name"
+  active_record_view:
+    id: "Id"
+    firstname: "Vorname"
+    lastname: "Nachname"

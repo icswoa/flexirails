@@ -1,5 +1,6 @@
 Dummy::Application.routes.draw do
   get "/static" => "static#index"
+  get "/active-record" => "active_record#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

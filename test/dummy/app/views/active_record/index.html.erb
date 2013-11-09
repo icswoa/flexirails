@@ -1,0 +1,7 @@
+<div class="navigation">
+  <%= render partial: '/flexirails/navigation', locals: { view: ar_view } %>
+</div>
+
+<div class="content">
+  <%= render_flexirails_view(ar_view, { class: 'active_records' }) %>
+</div>

@@ -47,10 +47,6 @@ module Flexirails
       raise "ImplementationMissing"
     end
 
-    def pluck object
-      raise "ImplementationMissing"
-    end
-
     def url(*args)
       raise 'ImplentationMissing'
     end
