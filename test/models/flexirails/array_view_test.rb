@@ -39,6 +39,18 @@ module Flexirails
 
       assert view.has_prev_path
       assert view.has_next_path
+
+      view = TestView.new({ :per_page => "3", :current_page => "3" }, items)
+      assert_equal view.items[6..8], view.rows
+
+      assert view.has_prev_path
+      assert view.has_next_path
+
+      view = TestView.new({ :per_page => "3", :current_page => "4" }, items)
+      assert_equal view.items[9..10], view.rows
+
+      assert view.has_prev_path
+      refute view.has_next_path
     end
   end
 end
