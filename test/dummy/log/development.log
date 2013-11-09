@@ -1521,3 +1521,578 @@ Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:06:20 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:06:20 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:08:28 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.0ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.5ms)
+  Rendered static/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:08:28 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:08:28 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:08:28 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:08:28 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:08:28 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:09:04 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.2ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.5ms)
+  Rendered static/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 9ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:04 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:04 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:04 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:04 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:04 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bdirection%5D=ASC&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:09:06 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "direction"=>"ASC", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.4ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.5ms)
+  Rendered static/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 7ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:06 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:06 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:06 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:06 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:06 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bdirection%5D=DESC&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:09:06 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "direction"=>"DESC", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.5ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.7ms)
+  Rendered static/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:06 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:06 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:06 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:06 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:06 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:09:07 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.7ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.7ms)
+  Rendered static/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:07 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:07 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:07 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:07 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:07 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bdirection%5D=ASC&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:09:07 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "direction"=>"ASC", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.6ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.9ms)
+  Rendered static/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:07 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:07 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:07 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:07 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:07 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bdirection%5D=DESC&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:09:08 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "direction"=>"DESC", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.4ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.5ms)
+  Rendered static/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 7ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:08 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:08 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:08 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:08 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:08 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:09:09 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.9ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.7ms)
+  Rendered static/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 8ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:09 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:09 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:09 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:09 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:09 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:09:11 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.3ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.5ms)
+  Rendered static/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:11 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:11 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:11 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:11 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:11 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:09:50 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (4.8ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.5ms)
+  Rendered static/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:50 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:50 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:50 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:50 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:50 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:09:52 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.3ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.5ms)
+  Rendered static/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:52 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:09:52 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:52 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:52 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:09:52 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:10:01 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (6.8ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.9ms)
+  Rendered static/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:10:01 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:10:01 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:01 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:01 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:01 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:10:05 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.3ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.4ms)
+  Rendered static/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:10:05 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:10:05 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:05 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:05 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:05 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bdirection%5D=ASC&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:10:07 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "direction"=>"ASC", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.8ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.4ms)
+  Rendered static/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:10:07 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:10:07 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:07 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:07 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:07 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bdirection%5D=DESC&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:10:07 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "direction"=>"DESC", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (3.5ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.7ms)
+  Rendered static/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:10:07 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:10:07 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:07 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:07 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:07 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bdirection%5D=DESC&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:10:57 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "direction"=>"DESC", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (5.0ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (0.7ms)
+  Rendered static/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:10:57 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:57 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:57 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:10:57 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:10:57 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=2&pagination%5Bdirection%5D=DESC&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:11:02 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"2", "direction"=>"DESC", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.5ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (0.7ms)
+  Rendered static/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:02 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:02 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:02 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:02 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:02 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bdirection%5D=DESC&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:11:04 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "direction"=>"DESC", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.3ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (0.7ms)
+  Rendered static/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 6ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:04 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:04 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:04 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:04 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:04 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bdirection%5D=DESC&pagination%5Border%5D=name&pagination%5Bper_page%5D=25" for 127.0.0.1 at 2013-11-09 21:11:05 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "direction"=>"DESC", "order"=>"name", "per_page"=>"25"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (3.6ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (0.7ms)
+  Rendered static/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:05 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:05 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:05 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:05 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:05 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bdirection%5D=DESC&pagination%5Border%5D=name&pagination%5Bper_page%5D=50" for 127.0.0.1 at 2013-11-09 21:11:29 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "direction"=>"DESC", "order"=>"name", "per_page"=>"50"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.4ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (0.7ms)
+  Rendered static/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:29 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:29 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:29 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:29 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:29 +0100
+
+
+Started GET "/static?pagination%5Bcurrent_page%5D=1&pagination%5Bdirection%5D=DESC&pagination%5Border%5D=name&pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:11:30 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"current_page"=>"1", "direction"=>"DESC", "order"=>"name", "per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (2.5ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (1.0ms)
+  Rendered static/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 9ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:30 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:30 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:30 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:30 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:30 +0100
+
+
+Started GET "/static" for 127.0.0.1 at 2013-11-09 21:11:35 +0100
+Processing by StaticController#index as HTML
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (1.9ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (0.9ms)
+  Rendered static/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:35 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:35 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:35 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:35 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:35 +0100
+
+
+Started GET "/static?pagination%5Bper_page%5D=5" for 127.0.0.1 at 2013-11-09 21:11:37 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"per_page"=>"5"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (1.9ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (0.7ms)
+  Rendered static/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:37 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:37 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:37 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:37 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:37 +0100
+
+
+Started GET "/static?pagination%5Bper_page%5D=25" for 127.0.0.1 at 2013-11-09 21:11:39 +0100
+Processing by StaticController#index as HTML
+  Parameters: {"pagination"=>{"per_page"=>"25"}}
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_navigation.html.erb (3.4ms)
+  Rendered /Users/nicolai86/Workspace/projects/ics/flexirails/app/views/flexirails/_container.html.erb (0.7ms)
+  Rendered static/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 8ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/flexirails.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:40 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-09 21:11:40 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:40 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:40 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-09 21:11:40 +0100

@@ -1,2 +1,5 @@
 de:
-  hello: "Hallo Welt"
+  static_view:
+    id: "Id"
+    name: "Name"
+    full_name: "Ganzer Name"
