@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    flexirails (0.0.1)
+    flexirails (0.1.0)
       rails (> 3.2.12, < 5.0)
       url_plumber
 
