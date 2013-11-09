@@ -65,7 +65,7 @@ module Flexirails
     def order_query?
       return order.present? && direction.present?
     end
-    alias :order_results?, :order_query?
+    alias_method :order_results?, :order_query?
 
     def rows
       return @rows ||= query(offset, limit)
