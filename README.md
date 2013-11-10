@@ -1,5 +1,8 @@
 # Flexirails
 
+[![Gem Version](https://badge.fury.io/rb/flexirails.png)](http://badge.fury.io/rb/flexirails)
+[![Build Status](https://travis-ci.org/nicolai86/flexirails.png)](https://travis-ci.org/nicolai86/flexirails)
+
 ORM independent table view for Ruby on Rails.
 Has support for partial rendering, turbolinks and i18n as well as basic sorting and filtering facilities.
 If you want more abstraction you need to build it yourself.
