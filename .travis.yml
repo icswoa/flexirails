@@ -1,9 +1,11 @@
 language: ruby
 rvm:
+  - 2.0.0
+  - 2.1.0
   - 2.2.0
   - 2.2.1
 
-script: xvfb-run rake
+script: xvfb-run bundle exec rake
 
 before_script:
   - cp test/dummy/config/database.yml.sample test/dummy/config/database.yml
