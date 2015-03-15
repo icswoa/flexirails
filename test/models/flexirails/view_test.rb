@@ -18,7 +18,13 @@ module Flexirails
     end
 
     test "only accepts ASC and DESC as direction" do
-      view = TestView.new({ :per_page => "5" })
+      %w(ASC DESC asc desc).each do |valid_direction|
+        view = TestView.new({ :per_page => "5", :direction => valid_direction })
+        assert_equal valid_direction, view.direction
+      end
+
+      view = TestView.new({ :per_page => "5", :direction => "bla" })
+      assert_equal nil, view.direction
     end
 
     test "initialize with different per_page" do

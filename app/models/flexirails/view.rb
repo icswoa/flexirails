@@ -114,10 +114,10 @@ module Flexirails
 
     private
     def sanitize_direction direction
-      return %w(ASC DESC).include?(direction) ? direction : nil
+      %w(ASC DESC asc desc).include?(direction) ? direction : nil
     end
     def sanitize attribute
-      return columns.include?(attribute) ? attribute : nil
+      columns.include?(attribute) ? attribute : nil
     end
   end
 end
